@@ -1,0 +1,59 @@
+<template name="layoutAdmin">
+    {{> navbarAdmin}}
+    {{> tabAdmin}}
+    {{> yield}}
+</template>
+
+<template name="admin">
+    <div class="container-withtabs">
+        <table class="tbl-product-admin">
+            <tbody>
+            <th>상품</th>
+            <th>수량</th>
+            <th>남은시간</th>
+            <th>가격</th>
+            <th></th>
+            {{#each listProduct}}
+                {{>itemProductAdmin}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="itemProductAdmin">
+    <tr>
+        <td>
+            <img src="{{imageId}}" class="img-circle">
+            <div>{{name}}</div>
+        </td>
+        <td>{{quantityLeft}}</td>
+        <td class="countdown"></td>
+        <td>{{priceCurrent}}</td>
+        <td>
+            <a name="remove" class="btn">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+        </td>
+    </tr>
+</template>
+
+<!--navbar-->
+<template name="navbarAdmin">
+    <nav class="navbar navbar-fixed-top">
+        <span name="navbar-menu">{{> navbarMenu}}</span>
+        <img name="navbar-logo" src="/resources/img/ui/navbar-logo.png" class="img-responsive"/>
+        <a name="right" class="btn" href="/registerProduct">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+    </nav>
+</template>
+
+<!--tab-->
+<template name="tabAdmin">
+    <ul class="nav-tabs-admin">
+        <li role="presentation"><a class ="current" href="/admin" name="tab-registerProduct">등록상품</a></li>
+        <li role="presentation"><a name="tab-saleManage">판매관리</a></li>
+    </ul>
+</template>
+
