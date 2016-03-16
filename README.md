@@ -1,4 +1,4 @@
-# 삼김 - 프로젝트 기본 설정
+﻿# Ohbbang - 프로젝트 기본 설정
 
 ## Folder
 * client - for Clients
